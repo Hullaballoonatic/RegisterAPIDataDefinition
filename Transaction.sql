@@ -1,7 +1,7 @@
 --DROP TABLE transaction;
 
 CREATE TABLE transaction (
-	id uuid NOT NULL DEFAULT gen_random_uuid(),
+	id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
 	cashierID uuid NOT NULL FOREIGN KEY REFERENCES employee(id),
 	sumprice money NOT NULL DEFAULT(0.00),
 	type varchar(5) CHECK (type in ('sale','return')),
